@@ -13,13 +13,16 @@ public class GuessGame {
         }
         String temp = this.answer;
         for (String s : numbers.split("")) {
+            temp = temp.replace(s, "");
             if (numbers.indexOf(s) == this.answer.indexOf(s)) {
                 break;
             }
-            temp = temp.replace(s, "");
         }
         if (temp.length() == 0) {
             return "0A4B";
+        }
+        if (temp.length() == this.answer.length()) {
+            return "0A0B";
         }
         return "1A3B";
     }
