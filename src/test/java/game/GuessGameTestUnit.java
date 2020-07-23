@@ -34,4 +34,18 @@ public class GuessGameTestUnit {
         String expect = "1A3B";
         assertEquals(expect, actual);
     }
+
+    @Test
+    public void should_return_0A4B_when_play_guess_game_given_3421() {
+        //given
+        String given = "3421";
+        //when
+        AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
+        when(answerGenerator.generate()).thenReturn("1234");
+        GuessGame gussGame = new GuessGame(answerGenerator);
+        String actual = gussGame.guess(given);
+        //then
+        String expect = "0A4B";
+        assertEquals(expect, actual);
+    }
 }
