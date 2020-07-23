@@ -2,6 +2,7 @@ package game;
 
 public class Validation {
     public boolean isValid(String given) {
-        return true;
+
+        return given.length()==4;
     }
 }
