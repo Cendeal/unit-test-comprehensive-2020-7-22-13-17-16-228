@@ -8,22 +8,18 @@ public class GuessGame {
     }
 
     public String guess(String numbers) {
-        if (answer.equals(numbers)) {
-            return "4A0B";
-        }
-        String temp = this.answer;
-        for (String s : numbers.split("")) {
-            temp = temp.replace(s, "");
-            if (numbers.indexOf(s) == this.answer.indexOf(s)) {
-                break;
+        int countOfB = 0;
+        int countOfA = 0;
+        String[] answers = this.answer.split("");
+        for (int i = 0; i < answers.length; i++) {
+            if (numbers.indexOf(answers[i]) == i) {
+                countOfA++;
+                continue;
+            }
+            if (numbers.contains(answers[i])) {
+                countOfB++;
             }
         }
-        if (temp.length() == 0) {
-            return "0A4B";
-        }
-        if (temp.length() == this.answer.length()) {
-            return "0A0B";
-        }
-        return "1A3B";
+        return String.format("%sA%sB", countOfA, countOfB);
     }
 }
