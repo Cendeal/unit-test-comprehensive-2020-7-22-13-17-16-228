@@ -6,33 +6,25 @@ public class Validation {
         return given.length() == 4;
     }
 
-    private boolean validIsNumbers(String given) {
+    private boolean validIsNumbersAndIsNotRepeat(String given) {
         String numbers = "0123456789";
         String[] givenArray = given.split("");
+        StringBuilder current = new StringBuilder();
         for (String s : givenArray) {
             if (!numbers.contains(s)) {
                 return false;
             }
-        }
-        return true;
-    }
-
-    private boolean validNotRepeat(String given) {
-        String[] givenArray = given.split("");
-        StringBuilder current = new StringBuilder();
-        for (String s : givenArray) {
             if (current.toString().contains(s)) {
                 return false;
-            } else {
-                current.append(s);
             }
-
+            current.append(s);
         }
         return true;
     }
+
 
 
     public boolean isValid(String given) {
-        return validLength(given) && validIsNumbers(given) && validNotRepeat(given);
+        return validLength(given) && validIsNumbersAndIsNotRepeat(given);
     }
 }
