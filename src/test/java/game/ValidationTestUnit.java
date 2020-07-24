@@ -53,7 +53,7 @@ public class ValidationTestUnit {
     @Test
     public void should_return_false_when_is_valid_give_123456() {
         //given
-        String given = "12ab";
+        String given = "123456";
         //when
         Validation validation = new Validation();
         boolean actual = validation.isValid(given);
