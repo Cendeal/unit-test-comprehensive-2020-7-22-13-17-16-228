@@ -1,7 +1,8 @@
 package game;
 
 public class Validation {
+    private final int LENGTH = 4;
     public boolean isValid(String given) {
-        return false;
+        return given.length() == LENGTH;
     }
 }
