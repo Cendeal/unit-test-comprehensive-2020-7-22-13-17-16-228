@@ -27,4 +27,15 @@ public class ValidationTestUnit {
         //then
         assertFalse(actual);
     }
+
+    @Test
+    public void should_return_false_when_is_valid_give_1222() {
+        //given
+        String given = "1222";
+        //when
+        Validation validation = new Validation();
+        boolean actual = validation.isValid(given);
+        //then
+        assertFalse(actual);
+    }
 }
