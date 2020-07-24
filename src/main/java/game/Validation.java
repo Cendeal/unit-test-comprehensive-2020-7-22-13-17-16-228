@@ -1,17 +1,38 @@
 package game;
 
 public class Validation {
-    private final int LENGTH = 4;
 
-    public boolean isValid(String given) {
-        String[] numbers = given.split("");
-        for (String number : numbers) {
-            if (given.replaceAll(number, "").length() == LENGTH - 1) {
-                continue;
+    private boolean validLength(String given) {
+        return given.length() == 4;
+    }
+
+    private boolean validIsNumbers(String given) {
+        String numbers = "0123456789";
+        String[] givenArray = given.split("");
+        for (String s : givenArray) {
+            if (!numbers.contains(s)) {
+                return false;
             }
-            return false;
+        }
+        return true;
+    }
+
+    private boolean validNotRepeat(String given) {
+        String[] givenArray = given.split("");
+        StringBuilder current = new StringBuilder();
+        for (String number : givenArray) {
+            if (current.toString().contains(number)) {
+                return false;
+            } else {
+                current.append(number);
+            }
 
         }
-        return given.length() == LENGTH;
+        return true;
+    }
+
+
+    public boolean isValid(String given) {
+        return validLength(given) && validIsNumbers(given) && validNotRepeat(given);
     }
 }
