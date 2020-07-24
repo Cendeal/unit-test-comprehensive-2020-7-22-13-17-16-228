@@ -29,7 +29,7 @@ public class ValidationTestUnit {
     }
 
     @Test
-    public void should_return_false_when_is_valid_give_1222() {
+    public void should_return_false_when_is_valid_given_1222() {
         //given
         String given = "1222";
         //when
@@ -40,7 +40,7 @@ public class ValidationTestUnit {
     }
 
     @Test
-    public void should_return_false_when_is_valid_give_12ab() {
+    public void should_return_false_when_is_valid_given_12ab() {
         //given
         String given = "12ab";
         //when
@@ -51,7 +51,7 @@ public class ValidationTestUnit {
     }
 
     @Test
-    public void should_return_false_when_is_valid_give_123456() {
+    public void should_return_false_when_is_valid_given_123456() {
         //given
         String given = "123456";
         //when

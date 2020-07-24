@@ -20,11 +20,11 @@ public class Validation {
     private boolean validNotRepeat(String given) {
         String[] givenArray = given.split("");
         StringBuilder current = new StringBuilder();
-        for (String number : givenArray) {
-            if (current.toString().contains(number)) {
+        for (String s : givenArray) {
+            if (current.toString().contains(s)) {
                 return false;
             } else {
-                current.append(number);
+                current.append(s);
             }
 
         }
