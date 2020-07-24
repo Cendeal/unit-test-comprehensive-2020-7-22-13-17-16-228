@@ -14,8 +14,9 @@ public class GuessGame {
         int countOfB = 0;
         int countOfA = 0;
         String[] answers = this.answer.split("");
+        String[] temp = numbers.split("");
         for (int i = 0; i < answers.length; i++) {
-            if (numbers.indexOf(answers[i]) == i) {
+            if (temp[i].equals(answers[i])) {
                 countOfA++;
                 continue;
             }
