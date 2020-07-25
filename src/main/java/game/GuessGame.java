@@ -26,4 +26,8 @@ public class GuessGame {
         }
         return String.format("%sA%sB", countOfA, countOfB);
     }
+
+    public String getAnswer() {
+        return this.answer;
+    }
 }

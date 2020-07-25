@@ -19,7 +19,7 @@ Input　　    Output             Instruction
 5 6 7 8      0A0B                 all wrong
 4 3 2 1      0A4B                 4 numbers position wrong
 1 2 3 4      4A0B                 win, all correct
-1 1 2 3    Wrong Input，Input again
+1 1 2 3    **Wrong Input，Input again**
 1 2        Wrong Input，Input again
 ```
  
