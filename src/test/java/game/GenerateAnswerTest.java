@@ -11,9 +11,10 @@ public class GenerateAnswerTest {
         Validation validation = new Validation();
         //when
         AnswerGenerator generator = new GuessAnswerGenerator();
+        String answer = generator.generate();
+        boolean actual = validation.isValid(answer);
         //then
-        String actual = generator.generate();
-        assertTrue(validation.isValid(actual));
+        assertTrue(actual);
 
     }
 }

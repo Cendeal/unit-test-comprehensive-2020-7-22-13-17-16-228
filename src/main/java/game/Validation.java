@@ -23,8 +23,7 @@ public class Validation {
     }
 
 
-
     public boolean isValid(String given) {
-        return validLength(given) && validIsNumbersAndIsNotRepeat(given);
+        return given != null && validLength(given) && validIsNumbersAndIsNotRepeat(given);
     }
 }
