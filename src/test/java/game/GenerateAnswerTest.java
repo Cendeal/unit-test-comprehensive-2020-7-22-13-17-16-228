@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class GenerateAnswerTestUnit {
+public class GenerateAnswerTest {
     @Test
     public void should_return_true_when_generate_given_validation() {
         //given

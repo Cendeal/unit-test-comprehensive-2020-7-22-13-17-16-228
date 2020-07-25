@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class GuessGameTestUnit {
+public class GuessGameTest {
     @Test
     public void should_return_4A0B_when_play_guess_game_given_1234() {
         //given
