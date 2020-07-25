@@ -11,10 +11,7 @@ public class Validation {
         String[] givenArray = given.split("");
         StringBuilder current = new StringBuilder();
         for (String s : givenArray) {
-            if (!numbers.contains(s)) {
-                return false;
-            }
-            if (current.toString().contains(s)) {
+            if (!numbers.contains(s)||current.toString().contains(s)) {
                 return false;
             }
             current.append(s);
