@@ -19,7 +19,7 @@ public class GameApplication {
         System.out.println("Please input your answer(use space to split every number[0-9]):");
         Scanner sc = new Scanner(System.in);
 
-        while (this.time < 6) {
+        while (this.time < this.MAX_TIME) {
             String input = sc.nextLine();
             String input_answer = input.replaceAll(" ", "");
             if (this.validation.isValid(input_answer)) {
