@@ -7,13 +7,14 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class GuessGameTest {
+    private final static String hardCodeAnswer = "1234";
     @Test
     public void should_return_4A0B_when_play_guess_game_given_1234() {
         //given
         String given = "1234";
         //when
         AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
-        when(answerGenerator.generate()).thenReturn("1234");
+        when(answerGenerator.generate()).thenReturn(hardCodeAnswer);
         GuessGame gussGame = new GuessGame(answerGenerator);
         String actual = gussGame.guess(given);
         //then
@@ -27,7 +28,7 @@ public class GuessGameTest {
         String given = "1342";
         //when
         AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
-        when(answerGenerator.generate()).thenReturn("1234");
+        when(answerGenerator.generate()).thenReturn(hardCodeAnswer);
         GuessGame gussGame = new GuessGame(answerGenerator);
         String actual = gussGame.guess(given);
         //then
@@ -41,7 +42,7 @@ public class GuessGameTest {
         String given = "3421";
         //when
         AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
-        when(answerGenerator.generate()).thenReturn("1234");
+        when(answerGenerator.generate()).thenReturn(hardCodeAnswer);
         GuessGame gussGame = new GuessGame(answerGenerator);
         String actual = gussGame.guess(given);
         //then
@@ -55,7 +56,7 @@ public class GuessGameTest {
         String given = "5678";
         //when
         AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
-        when(answerGenerator.generate()).thenReturn("1234");
+        when(answerGenerator.generate()).thenReturn(hardCodeAnswer);
         GuessGame gussGame = new GuessGame(answerGenerator);
         String actual = gussGame.guess(given);
         //then
@@ -69,7 +70,7 @@ public class GuessGameTest {
         String given = "1647";
         //when
         AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
-        when(answerGenerator.generate()).thenReturn("1234");
+        when(answerGenerator.generate()).thenReturn(hardCodeAnswer);
         GuessGame gussGame = new GuessGame(answerGenerator);
         String actual = gussGame.guess(given);
         //then
@@ -83,7 +84,7 @@ public class GuessGameTest {
         String given = "3459";
         //when
         AnswerGenerator answerGenerator = mock(AnswerGenerator.class);
-        when(answerGenerator.generate()).thenReturn("1234");
+        when(answerGenerator.generate()).thenReturn(hardCodeAnswer);
         GuessGame gussGame = new GuessGame(answerGenerator);
         String actual = gussGame.guess(given);
         //then

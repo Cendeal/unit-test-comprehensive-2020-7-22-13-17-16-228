@@ -1,10 +1,11 @@
 package game;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class GameApplication {
     private int time;
-    private final int MAX_TIME = 6;
+    private final static int CHALLENGE = 6;
     private Validation validation;
 
     public GameApplication() {
@@ -15,15 +16,15 @@ public class GameApplication {
     public void start() {
         GuessGame guessGame = new GuessGame(new GuessAnswerGenerator());
 
-        System.out.println("Game start ["+this.MAX_TIME+" times]:");
+        System.out.println("Game start ["+ CHALLENGE +" times]:");
         System.out.println("Please input your answer(use space to split every number[0-9]):");
         Scanner sc = new Scanner(System.in);
 
-        while (this.time < this.MAX_TIME) {
+        while (this.time < CHALLENGE) {
             String input = sc.nextLine();
-            String input_answer = input.replaceAll(" ", "");
-            if (this.validation.isValid(input_answer)) {
-                String result = guessGame.guess(input_answer);
+            String inputAnswer = input.replaceAll(" ", "");
+            if (this.validation.isValid(inputAnswer)) {
+                String result = guessGame.guess(inputAnswer);
                 if (isWin(result)) {
                     System.out.println("You win!");
                     break;
@@ -33,15 +34,16 @@ public class GameApplication {
                 System.out.println("Wrong Input，Input again!");
             }
             this.time++;
-            System.out.println(String.format("[tips]:You still have [%s] time(s).", this.MAX_TIME - this.time));
+            System.out.println(String.format("[tips]:You still have [%s] time(s).", CHALLENGE - this.time));
         }
         System.out.println(String.format("Answer should be [%s]", guessGame.getAnswer()));
         System.out.println("Game over!");
         System.out.println("Do you want to play again?(Y/N)");
         String again = sc.next();
-        if ("Y".equals(again.toUpperCase())) {
+        if ("Y".equals(again.toUpperCase(Locale.ENGLISH))) {
             this.restart();
         }
+        sc.close();
     }
 
     private void restart() {
@@ -50,7 +52,7 @@ public class GameApplication {
     }
 
     private boolean isWin(String answer) {
-        return this.time <= this.MAX_TIME && "4A0B".equals(answer);
+        return this.time <= CHALLENGE && "4A0B".equals(answer);
     }
 
     public static void main(String[] args) {
