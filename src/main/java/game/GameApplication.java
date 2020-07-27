@@ -1,7 +1,6 @@
 package game;
 
 import java.util.Locale;
-import java.util.Scanner;
 
 public class GameApplication {
     private static final String WIN = "4A0B";
@@ -9,6 +8,7 @@ public class GameApplication {
     private int time;
     private final static int CHALLENGE = 6;
     private final Validation validation;
+    private InputHandler inputHandler;
 
     public GameApplication() {
         this.validation = new Validation();
@@ -29,10 +29,9 @@ public class GameApplication {
     public void start() {
         GuessGame guessGame = new GuessGame(new GuessAnswerGenerator());
         startGameTips();
-        Scanner sc = new Scanner(System.in);
 
         while (this.time < CHALLENGE) {
-            String input = sc.nextLine();
+            String input = inputHandler.input();
             String inputAnswer = input.replaceAll(" ", "");
             if (this.validation.isValid(inputAnswer)) {
                 String result = guessGame.guess(inputAnswer);
@@ -48,11 +47,11 @@ public class GameApplication {
             System.out.println(String.format("[tips]:You still have [%s] time(s).", CHALLENGE - this.time));
         }
         gameOverOutPut(guessGame.getAnswer());
-        String again = sc.next();
+        String again = inputHandler.command();
         if (CONTINUE.equals(again.toUpperCase(Locale.ENGLISH))) {
             this.restart();
         }
-        sc.close();
+        inputHandler.close();
     }
 
     private void restart() {
