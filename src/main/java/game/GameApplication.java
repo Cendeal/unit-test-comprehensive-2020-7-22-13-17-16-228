@@ -9,10 +9,13 @@ public class GameApplication {
     private final static int CHALLENGE = 6;
     private final Validation validation;
     private final InputHandler inputHandler;
+    private AnswerGenerator answerGenerator;
 
-    public GameApplication() {
+
+    public GameApplication(InputHandler inputHandler, AnswerGenerator answerGenerator) {
         this.validation = new Validation();
-        this.inputHandler = new InputHandler();
+        this.inputHandler = inputHandler;
+        this.answerGenerator = answerGenerator;
         this.time = 0;
     }
 
@@ -50,7 +53,7 @@ public class GameApplication {
     }
 
     public void start() {
-        GuessGame guessGame = new GuessGame(new GuessAnswerGenerator());
+        GuessGame guessGame = new GuessGame(this.answerGenerator);
         startGameTips();
         play(guessGame);
         gameOverOutPut(guessGame.getAnswer());
@@ -70,6 +73,6 @@ public class GameApplication {
     }
 
     public static void main(String[] args) {
-        new GameApplication().start();
+        new GameApplication(new InputHandler(), new GuessAnswerGenerator()).start();
     }
 }
