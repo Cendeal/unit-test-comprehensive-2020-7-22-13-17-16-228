@@ -15,10 +15,16 @@ public class GameApplication {
         this.time = 0;
     }
 
+    private void gameOverOutPut(String answer) {
+        System.out.println(String.format("Answer should be [%s]", answer));
+        System.out.println("Game over!");
+        System.out.println("Do you want to play again?(Y/N)");
+    }
+
     public void start() {
         GuessGame guessGame = new GuessGame(new GuessAnswerGenerator());
 
-        System.out.println("Game start ["+ CHALLENGE +" times]:");
+        System.out.println("Game start [" + CHALLENGE + " times]:");
         System.out.println("Please input your answer(use space to split every number[0-9]):");
         Scanner sc = new Scanner(System.in);
 
@@ -38,9 +44,7 @@ public class GameApplication {
             this.time++;
             System.out.println(String.format("[tips]:You still have [%s] time(s).", CHALLENGE - this.time));
         }
-        System.out.println(String.format("Answer should be [%s]", guessGame.getAnswer()));
-        System.out.println("Game over!");
-        System.out.println("Do you want to play again?(Y/N)");
+        gameOverOutPut(guessGame.getAnswer());
         String again = sc.next();
         if (COMTINUE.equals(again.toUpperCase(Locale.ENGLISH))) {
             this.restart();
