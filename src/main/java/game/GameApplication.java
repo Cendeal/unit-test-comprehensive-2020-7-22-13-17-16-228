@@ -45,13 +45,17 @@ public class GameApplication {
         }
     }
 
+    private boolean wantTORestart() {
+        return CONTINUE.equals(inputHandler.command().toUpperCase(Locale.ENGLISH));
+    }
+
     public void start() {
         GuessGame guessGame = new GuessGame(new GuessAnswerGenerator());
         startGameTips();
         play(guessGame);
         gameOverOutPut(guessGame.getAnswer());
         String again = inputHandler.command();
-        if (CONTINUE.equals(again.toUpperCase(Locale.ENGLISH))) {
+        if (wantTORestart()) {
             this.restart();
         }
         inputHandler.close();
