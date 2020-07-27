@@ -8,10 +8,11 @@ public class GameApplication {
     private int time;
     private final static int CHALLENGE = 6;
     private final Validation validation;
-    private InputHandler inputHandler;
+    private final InputHandler inputHandler;
 
     public GameApplication() {
         this.validation = new Validation();
+        this.inputHandler = new InputHandler();
         this.time = 0;
     }
 
@@ -26,15 +27,11 @@ public class GameApplication {
         System.out.println("Do you want to play again?(Y/N)");
     }
 
-    public void start() {
-        GuessGame guessGame = new GuessGame(new GuessAnswerGenerator());
-        startGameTips();
-
+    private void play(GuessGame guessGame) {
         while (this.time < CHALLENGE) {
             String input = inputHandler.input();
-            String inputAnswer = input.replaceAll(" ", "");
-            if (this.validation.isValid(inputAnswer)) {
-                String result = guessGame.guess(inputAnswer);
+            if (this.validation.isValid(input)) {
+                String result = guessGame.guess(input);
                 if (isWin(result)) {
                     System.out.println("You win!");
                     break;
@@ -46,6 +43,12 @@ public class GameApplication {
             this.time++;
             System.out.println(String.format("[tips]:You still have [%s] time(s).", CHALLENGE - this.time));
         }
+    }
+
+    public void start() {
+        GuessGame guessGame = new GuessGame(new GuessAnswerGenerator());
+        startGameTips();
+        play(guessGame);
         gameOverOutPut(guessGame.getAnswer());
         String again = inputHandler.command();
         if (CONTINUE.equals(again.toUpperCase(Locale.ENGLISH))) {
