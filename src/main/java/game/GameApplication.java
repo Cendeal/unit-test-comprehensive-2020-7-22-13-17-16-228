@@ -4,9 +4,10 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class GameApplication {
+    private static final String WIN = "4A0B";
     private int time;
     private final static int CHALLENGE = 6;
-    private Validation validation;
+    private final Validation validation;
 
     public GameApplication() {
         this.validation = new Validation();
@@ -52,7 +53,7 @@ public class GameApplication {
     }
 
     private boolean isWin(String answer) {
-        return this.time <= CHALLENGE && "4A0B".equals(answer);
+        return this.time <= CHALLENGE && WIN.equals(answer);
     }
 
     public static void main(String[] args) {
