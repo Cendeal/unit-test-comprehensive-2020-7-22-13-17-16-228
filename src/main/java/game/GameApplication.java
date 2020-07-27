@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class GameApplication {
     private static final String WIN = "4A0B";
-    private static final String COMTINUE = "Y";
+    private static final String CONTINUE = "Y";
     private int time;
     private final static int CHALLENGE = 6;
     private final Validation validation;
@@ -49,7 +49,7 @@ public class GameApplication {
         }
         gameOverOutPut(guessGame.getAnswer());
         String again = sc.next();
-        if (COMTINUE.equals(again.toUpperCase(Locale.ENGLISH))) {
+        if (CONTINUE.equals(again.toUpperCase(Locale.ENGLISH))) {
             this.restart();
         }
         sc.close();
