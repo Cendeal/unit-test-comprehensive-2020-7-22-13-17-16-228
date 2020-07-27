@@ -9,7 +9,7 @@ public class GameApplication {
     private final static int CHALLENGE = 6;
     private final Validation validation;
     private final InputHandler inputHandler;
-    private AnswerGenerator answerGenerator;
+    private final AnswerGenerator answerGenerator;
 
 
     public GameApplication(InputHandler inputHandler, AnswerGenerator answerGenerator) {
@@ -33,6 +33,7 @@ public class GameApplication {
     private void play(GuessGame guessGame) {
         while (this.time < CHALLENGE) {
             String input = inputHandler.input();
+            System.out.println(input);
             if (this.validation.isValid(input)) {
                 String result = guessGame.guess(input);
                 if (isWin(result)) {
