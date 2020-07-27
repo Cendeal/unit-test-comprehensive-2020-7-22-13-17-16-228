@@ -54,7 +54,6 @@ public class GameApplication {
         startGameTips();
         play(guessGame);
         gameOverOutPut(guessGame.getAnswer());
-        String again = inputHandler.command();
         if (wantTORestart()) {
             this.restart();
         }
