@@ -15,6 +15,11 @@ public class GameApplication {
         this.time = 0;
     }
 
+    private void startGameTips() {
+        System.out.println("Game start [" + CHALLENGE + " times]:");
+        System.out.println("Please input your answer(use space to split every number[0-9]):");
+    }
+
     private void gameOverOutPut(String answer) {
         System.out.println(String.format("Answer should be [%s]", answer));
         System.out.println("Game over!");
@@ -23,9 +28,7 @@ public class GameApplication {
 
     public void start() {
         GuessGame guessGame = new GuessGame(new GuessAnswerGenerator());
-
-        System.out.println("Game start [" + CHALLENGE + " times]:");
-        System.out.println("Please input your answer(use space to split every number[0-9]):");
+        startGameTips();
         Scanner sc = new Scanner(System.in);
 
         while (this.time < CHALLENGE) {
