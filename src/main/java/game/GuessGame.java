@@ -1,5 +1,8 @@
 package game;
 
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.IntStream;
+
 public class GuessGame {
     private final String answer;
 
@@ -8,22 +11,22 @@ public class GuessGame {
     }
 
     public String guess(String numbers) {
-        if(numbers.equals(this.answer)){
+        if (numbers.equals(this.answer)) {
             return "4A0B";
         }
-        int countOfB = 0;
-        int countOfA = 0;
+        AtomicInteger countOfB = new AtomicInteger();
+        AtomicInteger countOfA = new AtomicInteger();
         String[] answers = this.answer.split("");
         String[] temp = numbers.split("");
-        for (int i = 0; i < answers.length; i++) {
+        IntStream.range(0, answers.length).forEach(i -> {
             if (temp[i].equals(answers[i])) {
-                countOfA++;
-                continue;
+                countOfA.getAndIncrement();
+                return;
             }
             if (numbers.contains(answers[i])) {
-                countOfB++;
+                countOfB.getAndIncrement();
             }
-        }
+        });
         return String.format("%sA%sB", countOfA, countOfB);
     }
 

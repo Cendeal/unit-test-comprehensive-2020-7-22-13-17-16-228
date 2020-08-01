@@ -1,6 +1,7 @@
 package game;
 
 import java.util.Locale;
+import java.util.Scanner;
 
 public class GameApplication {
     private static final String WIN = "4A0B";
@@ -74,6 +75,6 @@ public class GameApplication {
     }
 
     public static void main(String[] args) {
-        new GameApplication(new InputHandler(), new GuessAnswerGenerator()).start();
+        new GameApplication(new InputHandler(new Scanner(System.in)), new GuessAnswerGenerator()).start();
     }
 }

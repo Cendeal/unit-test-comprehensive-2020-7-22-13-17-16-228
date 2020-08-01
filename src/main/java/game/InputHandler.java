@@ -5,12 +5,16 @@ import java.util.Scanner;
 public class InputHandler {
     private final Scanner scanner;
 
-    public InputHandler() {
-        this.scanner = new Scanner(System.in);
+    public InputHandler(Scanner scanner) {
+        this.scanner = scanner;
     }
 
     public String input() {
         String content = scanner.nextLine();
+        return cleanBlank(content);
+    }
+
+    public String cleanBlank(String content){
         return content.replaceAll(" ", "");
     }
 
