@@ -34,7 +34,6 @@ public class GameApplication {
     private void play(GuessGame guessGame) {
         while (this.time < CHALLENGE) {
             String input = inputHandler.input();
-            System.out.println(input);
             if (this.validation.isValid(input)) {
                 String result = guessGame.guess(input);
                 if (isWin(result)) {
